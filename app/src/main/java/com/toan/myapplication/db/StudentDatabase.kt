@@ -10,7 +10,7 @@ import com.toan.myapplication.model.Student
 @Database(entities = [Student::class], version = 1)
 abstract class StudentDatabase : RoomDatabase() {
     companion object {
-        private lateinit var INSTANCE: StudentDatabase
+        private var INSTANCE: StudentDatabase? = null
 
         fun getInstance(context: Context): StudentDatabase {
             if (INSTANCE == null) {
@@ -18,7 +18,7 @@ abstract class StudentDatabase : RoomDatabase() {
                         StudentDatabase::class.java, "Sample.db")
                         .build()
             }
-            return INSTANCE
+            return INSTANCE as StudentDatabase
         }
     }
 
