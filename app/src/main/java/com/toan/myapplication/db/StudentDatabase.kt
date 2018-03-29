@@ -16,6 +16,7 @@ abstract class StudentDatabase : RoomDatabase() {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.applicationContext,
                         StudentDatabase::class.java, "Sample.db")
+//                        .allowMainThreadQueries()
                         .build()
             }
             return INSTANCE as StudentDatabase

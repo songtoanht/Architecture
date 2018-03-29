@@ -5,14 +5,12 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "student")
-class Student {
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    var id: Int = 1
+data class Student(
 
-    @ColumnInfo(name = "name")
-    var name: String = ""
-
-    @ColumnInfo(name = "age")
-    var age: Int = 0
-}
+        @ColumnInfo(name = "name")
+        var name: String,
+        @ColumnInfo(name = "age")
+        var age: Int,
+        @PrimaryKey(autoGenerate = true)
+        var id: Int = 0
+        )
